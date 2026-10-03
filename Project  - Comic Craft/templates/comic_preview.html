@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Comic Preview - ComicCraft
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="container wide">
+
+
+    <header class="page-header">
+
+        <div>
+
+            <p class="eyebrow">
+                YOUR GENERATED COMIC
+            </p>
+
+            <h1>
+                ComicCraft Preview
+            </h1>
+
+        </div>
+
+
+        <a
+            class="button secondary"
+            href="/"
+        >
+            Create Another
+        </a>
+
+    </header>
+
+
+    <div class="toolbar">
+
+        <a
+            class="button primary"
+            href="{{ pdf_path }}"
+            download
+        >
+            ⬇ Download Your Comic as PDF
+        </a>
+
+    </div>
+
+
+    {% for panel in layout %}
+
+
+    <article class="panel card">
+
+
+        <div class="panel-title">
+
+            <span>
+                Panel {{ panel.panel_number }}
+            </span>
+
+            <h2>
+                {{ panel.title }}
+            </h2>
+
+        </div>
+
+
+        <img
+            class="comic-image"
+            src="{{ panel.image_path }}"
+            alt="Comic panel {{ panel.panel_number }}"
+        >
+
+
+        <p class="scene">
+
+            <em>
+                {{ panel.scene_description }}
+            </em>
+
+        </p>
+
+
+        <div class="story-box">
+
+            <h3>
+                Caption
+            </h3>
+
+            <p>
+                {{ panel.caption }}
+            </p>
+
+        </div>
+
+
+        <div class="story-box">
+
+            <h3>
+                Narration
+            </h3>
+
+            <p>
+                {{ panel.narration }}
+            </p>
+
+        </div>
+
+
+        {% if panel.dialogue %}
+
+        <div class="dialogue">
+
+            <strong>
+                Dialogue:
+            </strong>
+
+            {{ panel.dialogue }}
+
+        </div>
+
+        {% endif %}
+
+
+        <details>
+
+            <summary>
+                Show Image Prompt
+            </summary>
+
+            <p>
+                {{ panel.image_prompt }}
+            </p>
+
+        </details>
+
+
+    </article>
+
+
+    {% endfor %}
+
+
+    <div class="bottom-action">
+
+        <a
+            class="button primary"
+            href="{{ pdf_path }}"
+            download
+        >
+            Download PDF
+        </a>
+
+    </div>
+
+
+</main>
+
+
+</body>
+
+</html>

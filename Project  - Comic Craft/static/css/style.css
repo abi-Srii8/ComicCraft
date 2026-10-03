@@ -1,0 +1,96 @@
+.container.wide {
+  max-width: 900px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.page-header h1 {
+  margin: 4px 0 0;
+  color: #fde047;
+  text-shadow: 3px 3px 0 #000;
+}
+
+.toolbar,
+.bottom-action {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 22px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  background: #fde047;
+  border: 3px solid #000;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 #000;
+  transition: 0.2s;
+}
+
+.button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.button.secondary {
+  background: #ffffff;
+}
+
+.panel.card {
+  margin-bottom: 28px;
+}
+
+.panel-title span {
+  color: #fde047;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.panel-title h2 {
+  margin: 4px 0 14px;
+}
+
+.comic-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 4px solid #000;
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 #000;
+}
+
+.scene {
+  margin: 16px 0;
+}
+
+.story-box h3 {
+  margin: 14px 0 4px;
+  color: #fde047;
+}
+
+.story-box p {
+  margin: 0;
+}
+
+.dialogue {
+  margin-top: 14px;
+  padding: 12px;
+  background: #ffffff;
+  color: #111827;
+  border: 3px solid #000;
+  border-radius: 14px;
+}
+
+details {
+  margin-top: 14px;
+  opacity: 0.85;
+}

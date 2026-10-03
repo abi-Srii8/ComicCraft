@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        ComicCraft - AI Comic Creator
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body class="landing">
+
+
+<main class="container">
+
+
+    <section class="hero">
+
+        <p class="eyebrow">
+            AI COMIC STORY CREATOR
+        </p>
+
+        <h1>
+            ComicCraft
+        </h1>
+
+        <p>
+            Turn your imagination into
+            a complete illustrated comic.
+        </p>
+
+    </section>
+
+
+    {% if error %}
+
+    <div class="alert error">
+
+        <strong>
+            Generation failed:
+        </strong>
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+
+    <form
+        class="card form-card"
+        action="/generate"
+        method="post"
+    >
+
+
+        <label for="story_prompt">
+            Story Prompt
+        </label>
+
+        <textarea
+            id="story_prompt"
+            name="story_prompt"
+            maxlength="2000"
+            required
+            placeholder="Example: A brave fox exploring an enchanted forest..."
+        >{{ request_data.story_prompt if request_data else "" }}</textarea>
+
+
+        <div class="grid">
+
+
+            <div>
+
+                <label for="character_name">
+                    Main Character Name
+                </label>
+
+                <input
+                    id="character_name"
+                    name="character_name"
+                    required
+                    value="{{ request_data.character_name if request_data else '' }}"
+                    placeholder="Milo"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label for="setting">
+                    Setting
+                </label>
+
+                <select
+                    id="setting"
+                    name="setting"
+                >
+
+                    <option value="forest">
+                        Forest
+                    </option>
+
+                    <option value="school">
+                        School
+                    </option>
+
+                    <option value="space">
+                        Space
+                    </option>
+
+                    <option value="city">
+                        City
+                    </option>
+
+                    <option value="village">
+                        Village
+                    </option>
+
+                    <option value="ocean">
+                        Ocean
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="grid">
+
+
+            <div>
+
+                <label for="tone">
+                    Story Tone
+                </label>
+
+                <select
+                    id="tone"
+                    name="tone"
+                >
+
+                    <option value="light-hearted">
+                        Light-hearted
+                    </option>
+
+                    <option value="dramatic">
+                        Dramatic
+                    </option>
+
+                    <option value="poetic">
+                        Poetic
+                    </option>
+
+                    <option value="funny">
+                        Funny
+                    </option>
+
+                    <option value="adventurous">
+                        Adventurous
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label for="art_style">
+                    Art Style
+                </label>
+
+                <select
+                    id="art_style"
+                    name="art_style"
+                >
+
+                    <option value="anime">
+                        Anime
+                    </option>
+
+                    <option value="pixel art">
+                        Pixel Art
+                    </option>
+
+                    <option value="comic book">
+                        Comic Book
+                    </option>
+
+                    <option value="realistic">
+                        Realistic
+                    </option>
+
+                    <option value="watercolor">
+                        Watercolor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="primary"
+            type="submit"
+        >
+
+            ✨ Generate My Comic
+
+        </button>
+
+
+        <p class="hint">
+
+            AI generation may take a few minutes.
+
+        </p>
+
+
+    </form>
+
+
+</main>
+
+
+</body>
+
+</html>
